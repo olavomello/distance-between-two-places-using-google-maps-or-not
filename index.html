@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distance between two places using GoogleMaps or Not</title>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry&key="></script>    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry&key=[GOOGLE-MAPS-KEY]"></script>
+    <script src="js/distance.js"></script>
+    
     <script>
 
         /// ---------------------------------------------------------
@@ -21,46 +23,18 @@
                         };        
         /// ---------------------------------------------------------
 
-        /// ---------------------------------------------------------
-        /// Option 1  ( Haversine )
-        /// ---------------------------------------------------------
-        var rad = function(x) {
-            return x * Math.PI / 180;
-        };
-        //
-        var getDistance = function(p1, p2) {
-            //
-            const R = 6378137; // Earth’s mean radius in meter
-            
-            // Lat Lng
-            var dLat  = rad(p2.lat - p1.lat);
-            var dLong = rad(p2.lng - p1.lng);
-            
-            // Calcl
-            var a = Math.sin(dLat / 2)     * Math.sin(dLat / 2)     +
-                    Math.cos(rad(p1.lat))  * Math.cos(rad(p2.lat))  *
-                    Math.sin(dLong / 2)    * Math.sin(dLong / 2);
-            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            var d = R * c;
-            return d; // returns the distance in meter
-        };
-        let distance1 = getDistance( p1, p2 );
-        /// ---------------------------------------------------------
-
-        /// ---------------------------------------------------------
-        /// Option 2 ( Google Geometry API )
-        /// ---------------------------------------------------------
-        var distance2 = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(p1.lat, p1.lng), new google.maps.LatLng(p2.lat, p2.lng));           
-        /// ---------------------------------------------------------
+        
 
         // Go go go
+        let distance1 = getDistanceHaversine( p1, p2 );
         console.log("[ Option 1 ]");
-        console.log("Distance = " + dist + " m");
-        console.log("Distance = " + Math.round(dist/1000) + " km");
+        console.log("Distance = " + distance1 + " m");
+        console.log("Distance = " + Math.round(distance1/1000) + " km");
 
+        let distance2 = getDistanceHaversine( p1, p2 );
         console.log("[ Option 2 ]");
-        console.log("Distance = " + dist + " m");
-        console.log("Distance = " + Math.round(dist/1000) + " km");    
+        console.log("Distance = " + distance2 + " m");
+        console.log("Distance = " + Math.round(distance2/1000) + " km");    
     </script>
 </head>
 <body>
