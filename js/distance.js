@@ -1,4 +1,5 @@
-﻿/// ---------------------------------------------------------
+﻿// https://maps.googleapis.com/maps/api/place/textsearch/json?query=Centro,%20Ribeirao%20Preto,%20SP,%20Brasil&location=&radius=&key=[KEY]
+/// ---------------------------------------------------------
 /// Option 1  ( Haversine )
 /// ---------------------------------------------------------
 function rad(x) {
