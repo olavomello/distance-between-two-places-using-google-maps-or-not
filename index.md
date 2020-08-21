@@ -7,4 +7,4 @@ Using Haversine [ math brain mode ;) ] you can use for free
 In both cases Lat and Lng needed !
 Return in meters ;)
 
-Olavo Mello from [Agência Dix](https://agenciadix.com.br)
+By Olavo Mello from [Agência Dix](https://agenciadix.com.br)
